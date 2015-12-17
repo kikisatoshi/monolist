@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    # group:[指定したキー(id)，キーに該当する最新のレコード(item)]の配列になる
     @items = @user.items.group('items.id')
   end
 

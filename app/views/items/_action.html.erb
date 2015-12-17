@@ -11,7 +11,7 @@
     <%= render 'items/have' , item: item %>
   <% end %>
 
-  <!--current_page?で表示中のパスを判定(itemならitems/show.html)-->
+  <!--current_page?:表示中のパスを判定(itemならitems/show.html)-->
   <% unless current_page?(item) %>
     <%= link_to "詳細" , item , class: "btn btn-info btn-sm" %>
   <% end %>
