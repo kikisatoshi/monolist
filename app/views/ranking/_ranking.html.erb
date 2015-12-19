@@ -10,6 +10,11 @@
                   <span class="glyphicon glyphicon-tower orange" aria-hidden="true"></span>
                 <% end %>
                 <%= index + 1 %>位
+                <% if type == 'Have' %>
+                  (<%= item.have_users.count %>)
+                <% else %>
+                  (<%= item.want_users.count %>)
+                <% end %>
               </h4>
             </div>
           </div>
@@ -31,7 +36,14 @@
         </div>
       <% else %>
         <div class="ranking-bottom">
-          <h4 class="ranking-bottom-title"><%= index + 1 %>位</h4>
+          <h4 class="ranking-bottom-title">
+            <%= index + 1 %>位
+            <% if type == 'Have' %>
+              (<%= item.have_users.count %>)
+            <% else %>
+              (<%= item.want_users.count %>)
+            <% end %>
+          </h4>
           <div class="image">
             <div class="img-wrap">
               <% if item.large_image.present? %>
