@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="container-inner inner-default clearfix">
+    <% items.each_with_index do |item, index| %>
+      <% if index < 3 %>
+        <div class="ranking clearfix">
+          <div class="ranking-single-side">
+            <div class="side-box">
+              <h4 class="side-box-title">
+                <% if index == 0 %>
+                  <span class="glyphicon glyphicon-tower orange" aria-hidden="true"></span>
+                <% end %>
+                <%= index + 1 %>位
+              </h4>
+            </div>
+          </div>
+          <div class="ranking-single-main">
+            <div class="image">
+              <div class="img-wrap">
+                <% if item.large_image.present? %>
+                  <%= image_tag(item.large_image , alt: item.title) %>
+                <% else %>
+                  <%= image_tag("no-image.png" , alt: item.title) %>
+                <% end %>
+              </div>
+            </div>
+            <div class="title">
+              <%= item.title %>
+            </div>
+            <%= render 'items/action' , item: item if logged_in? %>
+          </div>
+        </div>
+      <% else %>
+        <div class="ranking-bottom">
+          <h4 class="ranking-bottom-title"><%= index + 1 %>位</h4>
+          <div class="image">
+            <div class="img-wrap">
+              <% if item.large_image.present? %>
+                <%= image_tag(item.large_image , alt: item.title) %>
+              <% else %>
+                <%= image_tag("no-image.png" , alt: item.title) %>
+              <% end %>
+            </div>
+          <%= render 'items/action' , item: item if logged_in? %>
+          </div>
+          <div class="detail">
+            <p class="title">
+              <%= item.title %>
+            </p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

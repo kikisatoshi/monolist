@@ -1,0 +1,11 @@
+<% content_for :head do %>
+  <title>Ranking - Monolist</title>
+  <meta name="description" content="MonolistのWantランキングの情報です。欲しい人が多い順に商品を表示しています。">
+  <meta name="keywords" content="Monolist,Ranking">
+<% end %>
+
+<div class="page-box">
+  <h2 class="page-title">Wantランキング</h2>
+</div>
+
+<%= render 'ranking' , items: @items %>
