@@ -1,4 +1,4 @@
-class RankingsController < ApplicationController
+class RankingController < ApplicationController
 
   def have
     haves = Have.limit(10).group(:item_id).order('user_id desc')

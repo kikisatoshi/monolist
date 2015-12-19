@@ -2,12 +2,12 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  get    'signup'      , to: 'users#new'
-  get    'login'       , to: 'sessions#new'
-  post   'login'       , to: 'sessions#create'
-  delete 'logout'      , to: 'sessions#destroy'
-  get    'ranking/have', to: 'rankings#have'
-  get    'ranking/want', to: 'rankings#want'
+  get    'signup' , to: 'users#new'
+  get    'login'  , to: 'sessions#new'
+  post   'login'  , to: 'sessions#create'
+  delete 'logout' , to: 'sessions#destroy'
+  get    'ranking/have'
+  get    'ranking/want'
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
